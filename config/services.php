@@ -31,4 +31,23 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Google OAuth & Analytics
+    |--------------------------------------------------------------------------
+    |
+    | Konfigurasi untuk Google OAuth (login via Google) dan Google Analytics
+    | untuk monitoring pengunjung website.
+    |
+    */
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URI', '/auth/google/callback'),
+        
+        // Google Analytics ID (format: G-XXXXXXXXXX)
+        'analytics_id' => env('GOOGLE_ANALYTICS_ID'),
+    ],
+
 ];

@@ -1,0 +1,367 @@
+/* Fonts - Import di awal file */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   Custom Styles - terasa.booster
+   ======================================== */
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F8F8E1;
+}
+
+.font-display {
+    font-family: 'Fredoka One', cursive;
+}
+
+/* Scallop Edge */
+.scallop-bottom {
+    position: relative;
+}
+
+.scallop-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Cpath fill='%23FF8AAE' d='M0 0 Q25 30 50 0 Q75 30 100 0 L100 30 L0 30 Z'/%3E%3C/svg%3E");
+    background-size: 100px 30px;
+    background-repeat: repeat-x;
+}
+
+/* Heart Animation */
+.heart {
+    position: fixed;
+    font-size: 24px;
+    color: #FF8AAE;
+    animation: heartFall linear infinite;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.7;
+}
+
+@keyframes heartFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Leaf Animation */
+.leaf {
+    position: fixed;
+    font-size: 20px;
+    color: #90EE90;
+    animation: leafFall linear infinite;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.6;
+}
+
+@keyframes leafFall {
+    0% {
+        transform: translateY(-100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(50vh) translateX(50px) rotate(360deg);
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(100vh) translateX(-30px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Product Card Hexagon Style */
+.hexagon-img {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Scroll Hint */
+.scroll-hint {
+    animation: scrollHint 2s ease-in-out infinite;
+}
+
+@keyframes scrollHint {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(15px);
+        opacity: 0.5;
+    }
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply bg-terasa-button text-white font-semibold px-6 py-3 rounded-full 
+           hover:bg-terasa-pink-dark transition-all duration-300 
+           transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+    @apply bg-white text-terasa-button font-semibold px-6 py-3 rounded-full 
+           border-2 border-terasa-button hover:bg-terasa-button hover:text-white 
+           transition-all duration-300;
+}
+
+.btn-whatsapp {
+    @apply bg-green-500 text-white font-semibold px-6 py-3 rounded-full 
+           hover:bg-green-600 transition-all duration-300 
+           transform hover:scale-105 shadow-lg inline-flex items-center gap-2;
+}
+
+/* Card Styles */
+.card {
+    @apply bg-white rounded-2xl shadow-lg overflow-hidden 
+           transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+.card-pink {
+    @apply bg-terasa-card rounded-2xl shadow-lg overflow-hidden 
+           transition-all duration-300 hover:shadow-xl;
+}
+
+/* Navigation Active State */
+.nav-link {
+    @apply text-terasa-button font-medium transition-all duration-300 relative px-2 py-1;
+}
+
+.nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-terasa-button transition-all duration-300;
+}
+
+.nav-link:hover {
+    @apply text-terasa-pink-dark transform scale-105;
+}
+
+.nav-link:hover::after {
+    @apply w-full;
+}
+
+.nav-link.active {
+    @apply text-terasa-pink-dark;
+}
+
+.nav-link.active::after {
+    @apply w-full bg-terasa-button;
+}
+
+/* Form Inputs */
+.form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg 
+           focus:ring-2 focus:ring-terasa-button focus:border-transparent 
+           transition-all duration-200;
+}
+
+.form-label {
+    @apply block text-gray-700 font-medium mb-2;
+}
+
+/* Rating Stars */
+.star-rating {
+    @apply text-yellow-400;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+    @apply bg-white rounded-2xl p-6 shadow-lg;
+}
+
+/* Admin Dashboard */
+.admin-sidebar {
+    @apply bg-terasa-card min-h-screen w-64 fixed left-0 top-0 p-4;
+}
+
+.admin-nav-item {
+    @apply block px-4 py-3 rounded-lg text-white hover:bg-white/20 
+           transition-colors mb-2;
+}
+
+.admin-nav-item.active {
+    @apply bg-white text-terasa-button font-semibold;
+}
+
+/* Stats Card */
+.stat-card {
+    @apply bg-white rounded-xl p-6 shadow-md;
+}
+
+.stat-number {
+    @apply text-3xl font-bold text-terasa-button;
+}
+
+.stat-label {
+    @apply text-gray-500 text-sm mt-1;
+}
+
+/* Admin Form Inputs */
+.admin-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg 
+           focus:ring-2 focus:ring-terasa-button focus:border-transparent 
+           transition-all duration-200 bg-white;
+}
+
+/* Line Clamp Utilities */
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ========================================
+   Fade In Animations
+   ======================================== */
+
+/* Base fade state */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade in variants */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger delay utilities */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+.delay-700 { transition-delay: 0.7s; }
+.delay-800 { transition-delay: 0.8s; }
+
+/* ========================================
+   Navbar Scroll Effect
+   ======================================== */
+
+.navbar-transparent {
+    background-color: transparent !important;
+}
+
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Smooth section transitions */
+section {
+    position: relative;
+}
+
+/* Enhanced card hover effects */
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(255, 53, 166, 0.25);
+}
+
+/* Text gradient effect */
+.text-gradient {
+    background: linear-gradient(135deg, #FF35A6 0%, #FF8AAE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Glow effect */
+.glow-pink {
+    box-shadow: 0 0 40px rgba(255, 53, 166, 0.3);
+}
+
+/* Pulse animation for CTA */
+.pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+}
+
+@keyframes pulseSoft {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 53, 166, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(255, 53, 166, 0);
+    }
+}
